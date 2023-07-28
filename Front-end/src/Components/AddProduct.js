@@ -46,8 +46,7 @@ function AddProduct(){
                     if(r.ok){
                         alert(`${values.name} added successfully`)
                     }
-                })
-                
+                })                
             }
         }
     )
@@ -91,7 +90,6 @@ function AddProduct(){
                 <p>
                     {formik.errors.price}
                 </p>
-
                 <div>
                     <div>
                         <label htmlFor='quantity'>Quantity</label>
