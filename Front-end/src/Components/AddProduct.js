@@ -50,15 +50,95 @@ function AddProduct(){
             }
         }
     )
+    let categories = ['Choose category','Televisions' , 'Laptops', 'Smartphones', 'Tablets', 'Cameras']
 
     return(
-        <form>
+        <form onSubmit={formik.handleSubmit}>
             <div>
                 <h3>ADD NEW PRODUCT</h3>
             </div>
             <div>
+                <label htmlFor='image_url'>Image</label>
+                <input
+                type='url'
+                value={formik.values.image_url}
+                onChange={formik.handleChange}
+                name='image_url'
+                />
+                <p>
+                    {formik.errors.image_url}
+                </p>
+
+                <label htmlFor='name'>Name</label>
+                <input
+                type='text'
+                value={formik.values.name}
+                onChange={formik.handleChange}
+                name='name'
+                />
+                <p>
+                    {formik.errors.name}
+                </p>
+
+                <label htmlFor='price'>Price</label>
+                <input
+                type='number'
+                value={formik.values.price}
+                onChange={formik.handleChange}
+                name='price'
+                />
+                <p>
+                    {formik.errors.price}
+                </p>
+
+                <div>
+                    <div>
+                        <label htmlFor='quantity'>Quantity</label>
+                        <input
+                        type='number'
+                        value={formik.values.quantity}
+                        onChange={formik.handleChange}
+                        name='quantity'
+                        />
+                        <p>
+                            {formik.errors.quantity}
+                        </p>
+                    </div>
+                    <div>
+                        <label htmlFor='category'>category</label>
+                        <select onChange={formik.handleChange} value={formik.values.category} name='category'>
+                            {
+                            categories.map((oneCategory)=>{
+                                return(
+                                    <option value={oneCategory} label={oneCategory}>{oneCategory}</option>
+                                )
+                            })
+                            }
+                        </select>
+                        <p>{formik.errors.category}</p>
+                    </div>
+                </div>
+
                 
+                <label htmlFor='description'>Description</label>
+                <textarea
+                value={formik.values.description}
+                onChange={formik.handleChange}
+                name='description'
+                placeholder='Describe here ......'
+                >
+                </textarea>    
+                <p>
+                    {formik.errors.description}
+                </p>
+
+                <input
+                type='submit'
+                value='Add'
+                />
             </div>
         </form>
     )
 }
+
+export default AddProduct;
