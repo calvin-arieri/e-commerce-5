@@ -47,6 +47,7 @@ function AddProduct(){
                         alert(`${values.name} added successfully`)
                     }
                 })
+                
             }
         }
     )
