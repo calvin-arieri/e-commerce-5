@@ -7,8 +7,8 @@ import AddProduct from './AddProduct';
 const App = () => {
   return (
     <div>
-      {/* <Navbar /> */}
-    <AddProduct />
+
+ 
     </div>
   );
 };
