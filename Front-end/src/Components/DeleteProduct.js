@@ -4,8 +4,7 @@ import Delete from "./Delete"
 function DeleteProduct(){
     const [products , setProducts] = useState([])
     const [product_number, setproduct_number] = useState(0)   
-    let id 
-     
+    let id     
     useEffect(()=>{
         fetch('http://localhost:3000/products')
         .then((r)=>r.json())
