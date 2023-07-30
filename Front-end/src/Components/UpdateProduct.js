@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
 import * as Yup from 'yup'
 import { useState, useEffect } from "react";
+import './UpdateProduct.css'
+
 function UpdateProduct(){
     const [products , setProducts] = useState([])
     const [product_number, setproduct_number] = useState(0) 
@@ -56,17 +58,18 @@ function UpdateProduct(){
     )
     
     return(
-        <div>
+        <div className="UdateProduct-Container">
             <div>
                 <h4>Update product details</h4>
             </div>
-            <div>
+            <div className="add-bottom-space">
                 <input 
                 onChange={(e)=>{
                     setproduct_number(e.target.value)
                 }}
                 type="text"
                 required
+                className="product-number-input"
                 />
             </div>
             {delProduct[0]== undefined ? product_number.length < 1 ? 'Enter product number' : 'searching' :<form onSubmit={formik.handleSubmit}>
@@ -77,37 +80,41 @@ function UpdateProduct(){
                 onChange={formik.handleChange}
                 value={formik.values.name}
                 name="name"
+                className="product-name"
                 />
                 <p>{formik.errors.name}</p>
+                <div className="display-items-flex">
+                    <label htmlFor="quantity">Quantity</label>
+                    <input
+                    type="text"
+                    placeholder={delProduct[0].quantity}
+                    onChange={formik.handleChange}
+                    value={formik.values.quantity}
+                    name="quantity"
+                    className="quantity-input2"
+                    />
+                    <p>{formik.errors.quantity}</p>
 
-                <label htmlFor="quantity">Quantity</label>
-                <input
-                type="text"
-                placeholder={delProduct[0].quantity}
-                onChange={formik.handleChange}
-                value={formik.values.quantity}
-                name="quantity"
-                />
-                <p>{formik.errors.quantity}</p>
+                    <label htmlFor='category'>category</label>
+                            <select onChange={formik.handleChange} className='select-2'value={formik.values.category} name='category'>
+                                {
+                                categories.map((oneCategory)=>{
+                                    return(
+                                        <option key={oneCategory} className='select-2' value={oneCategory} label={oneCategory}>{oneCategory}</option>
+                                    )
+                                })
+                                }
+                            </select>
+                    <p>{formik.errors.category}</p>
+                </div>
 
-                <label htmlFor='category'>category</label>
-                        <select onChange={formik.handleChange} value={formik.values.category} name='category'>
-                            {
-                            categories.map((oneCategory)=>{
-                                return(
-                                    <option key={oneCategory} value={oneCategory} label={oneCategory}>{oneCategory}</option>
-                                )
-                            })
-                            }
-                        </select>
-                <p>{formik.errors.category}</p>
-
-                <label htmlFor='description'>Description</label>
+                <label htmlFor='description'>Description</label><br />
                 <textarea
                 value={formik.values.description}
                 onChange={formik.handleChange}
                 name='description'
                 placeholder= {delProduct[0].desciption}
+                className="description-space"
                 >
                 </textarea>    
                 <p>
