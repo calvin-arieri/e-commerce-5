@@ -39,8 +39,8 @@ function LogIn(){
     )
     return(
         <div className="form-container" >
-            <form onSubmit={formik.handleSubmit}>
-                <label htmlFor="email">Email: </label><br />
+            <form onSubmit={formik.handleSubmit} className='form-styling'>
+                <label htmlFor="email">Email</label>
                 <input
                 type="email"
                 required
@@ -49,7 +49,7 @@ function LogIn(){
                 name="email"
                 />
                 <p>{formik.errors.email}</p>
-                <label htmlFor="password">password: </label><br />
+                <label htmlFor="password">Password </label>
                 <input
                 type="password"
                 required
@@ -58,10 +58,15 @@ function LogIn(){
                 name="password"
                 />
                 <p>{formik.errors.password}</p>
-                <input
-                type="submit"
-                value= 'log in'
-                />            
+                <div className='bottom-Icons'>
+                    <input
+                    type="submit"
+                    value= 'log in'
+                    />
+                    <button>
+                        Sign Up
+                    </button>    
+                </div>                
             </form>
         </div>
     )
