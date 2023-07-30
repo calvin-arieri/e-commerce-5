@@ -1,0 +1,70 @@
+.flex-container{
+    display: flex;
+    flex-direction:row ;
+    justify-content: center;
+    align-items: center;   
+    background-color: #B3A6A6;
+    width: 21em;
+    height: max-content;
+    font-weight: 300;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.flex-container2{
+    margin-top: 0.6em;
+    display: flex;
+    flex-direction: column;
+}
+.flex-container3{
+    display: flex;
+    justify-content: space-between;
+}
+.quantity-input{
+    width:2em;
+    height: 2em;
+    margin-left: 0.7em;
+    border: none;
+    border-radius: 10px;
+}
+.submit-button{    
+    width: 4em;
+    font-weight: 100;
+    margin-left: 19em;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    border: none;
+}
+.submit-button:hover{    
+    width: 4.3em;
+    margin-left: 19em;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 4px 4px 4px gray;
+}
+.text-area-height{
+    height: 150px;
+    border: none;
+    border-radius: 10px;
+    margin-top:0.5em;
+}
+.adjust-height{
+    height: 2.5em;
+    border: none;
+    border-radius: 10px;
+    margin-top: 0.3em;
+}
+.select-changes{
+    margin-left: 0.3em;
+    border: none;
+    border-radius: 5px;   
+    height: 2em; 
+    font-weight: 200;
+}
+.flex-container2 p{
+    font-size: 0.7em;
+}
+.select-changes select:hover{
+    background-color: #B3A6A6;
+}
