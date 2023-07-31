@@ -10,7 +10,7 @@ function Delete({productId}){
         })        
     }
     return(
-        <button onClick={handledelete}>Delete</button>
+        <button onClick={handledelete} className="delete-button">Delete</button>
     )    
 }
 export default Delete;
