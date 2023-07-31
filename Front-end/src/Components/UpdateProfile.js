@@ -1,5 +1,6 @@
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
+import './UpdateProfile.css'
 
 function UpdateProfile () {
     const formSchema = Yup.object().shape(
@@ -44,61 +45,67 @@ function UpdateProfile () {
     )
 
     return(
-        <form onSubmit={formik.handleSubmit}>
-            <label htmlFor='username'>Username</label>
-            <input
-            value={formik.values.username}
-            placeholder='username'
-            onChange={formik.handleChange}
-            name='username'
-            type='text'
-            />
-            <p>{formik.errors.username}</p>
+        <div className='update-profile-container'>
+            <form onSubmit={formik.handleSubmit}>
+                <label htmlFor='username'>Username</label><br />
+                <input
+                value={formik.values.username}
+                placeholder='Username'
+                onChange={formik.handleChange}
+                name='username'
+                type='text'
+                />
+                <p>{formik.errors.username}</p>
 
-            <label htmlFor='email'>Email</label>
-            <input
-            value={formik.values.email}
-            placeholder='email'
-            onChange={formik.handleChange}
-            name='email'
-            type='email'
-            />
-            <p>{formik.errors.email}</p>
+                <label htmlFor='email'>Email</label><br />
+                <input
+                value={formik.values.email}
+                placeholder='Email'
+                onChange={formik.handleChange}
+                name='email'
+                type='email'
+                />
+                <p>{formik.errors.email}</p>
 
-            <label htmlFor='address'>Address</label>
-            <input
-            value={formik.values.address}
-            placeholder='address'
-            onChange={formik.handleChange}
-            name='address'
-            type='text'
-            />
-            <p>{formik.errors.address}</p>
+                <label htmlFor='address'>Address</label><br />
+                <input
+                value={formik.values.address}
+                placeholder='Address'
+                onChange={formik.handleChange}
+                name='address'
+                type='text'
+                />
+                <p>{formik.errors.address}</p>
 
-            <label htmlFor='phone_number'>Phone</label>
-            <input
-            value={formik.values.phone_number}
-            name='phone_number'
-            onChange={formik.handleChange}
-            type='number'
-            />
-            <p>{formik.errors.phone_number}</p> 
-            
-            <label htmlFor='password'>password</label>
-            <input
-            value={formik.values.password}
-            placeholder='password'
-            onChange={formik.handleChange}
-            name='password'
-            type='password'
-            />
-            <p>{formik.errors.password}</p>
+                <label htmlFor='phone_number'>Phone</label><br />
+                <input
+                value={formik.values.phone_number}
+                name='phone_number'
+                onChange={formik.handleChange}
+                type='number'
+                placeholder='Phone number'
+                />
+                <p>{formik.errors.phone_number}</p> 
+                
+                <label htmlFor='password'>Password</label><br />
+                <input
+                value={formik.values.password}
+                placeholder='Password'
+                onChange={formik.handleChange}
+                name='password'
+                type='password'
+                />
+                <p>{formik.errors.password}</p>
 
-            <input 
-            type='submit'
-            value='Update details'
-            />
-        </form>
+                <div>
+                    <input 
+                    type='submit'
+                    value='Update details'
+                    className='accept-button'
+                    />
+                </div>
+            </form>
+        </div>
     )
 }
 
