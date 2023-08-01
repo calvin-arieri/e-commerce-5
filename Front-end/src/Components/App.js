@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './Navbar'; // Use './' to indicate the file path for importing components
 import './App.css'; // Use './' to indicate the file path for importing CSS files
-import Cards from './Cards';
+import SignUp from './Signup/SignUp';
 const App = () => {
   return (
     <div>
+      <SignUp />
     </div>
   );
 };
