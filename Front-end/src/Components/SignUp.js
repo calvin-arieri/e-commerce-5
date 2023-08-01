@@ -9,7 +9,7 @@ function SignUp(){
             .string()
             .min(5 ,'Too short!')
             .max(7 ,'Too long!')
-            .required('Uppercase required'),
+            .required('Must be filled'),
             first_name:YUP
             .string()
             .min(2 , 'Too short!')
