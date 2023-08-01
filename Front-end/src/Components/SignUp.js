@@ -75,7 +75,7 @@ function SignUp(){
         <form onSubmit={formik.handleSubmit}>
             <div className='card'>
                 <div class="card_title">
-                    <h1>Create Account</h1>
+                    <h2>Create Account</h2>
                     <span>Already have an account? <a href="login">Sign In</a></span>
                 </div>
                 <div className='form-field'>
