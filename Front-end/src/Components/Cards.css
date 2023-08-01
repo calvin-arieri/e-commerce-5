@@ -1,0 +1,36 @@
+.service-card {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    padding: 3px;
+    padding-bottom: 20px;
+    margin-top: 30px ;
+    width: 250px;
+    height: auto;
+    margin-right: 20px;
+    text-align: center;
+    background-color: rgb(243, 238, 238);
+  }
+
+  .service-image {
+    width: 230px;
+    height: 200px;
+    border-radius: 5px;
+  }
+
+  .services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    justify-content: center;
+  }
+
+.btn{
+  padding: 10px;
+  padding-left: 60px;
+  padding-right: 60px;
+  border-radius: 15px;
+  font-style: italic;
+  background-color: aliceblue;
+  font-weight: 600;
+}
+
