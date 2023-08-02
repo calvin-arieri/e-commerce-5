@@ -14,6 +14,7 @@ function SellerProducts(){
             setProducts(data)
         })        
     }, [])
+    
     function handleSearch(e){
         let word = e.target.value
         setLook(word)        
