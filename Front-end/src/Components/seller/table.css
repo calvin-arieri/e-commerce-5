@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=REM:wght@100&display=swap');
+.table-container{
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    width: max-content;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    scrollbar-width: none;
+    height: 35em;
+    overflow-x: hidden;
+}
+.table-container td{
+    width: 4em;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+}
+.table-container th{
+    padding: 0.6em;
+    text-align: left;
+    background-color: #191970;
+    color: white; 
+    font-size: 1em; 
+}
+.space-below-table{
+    padding-bottom: 3em;
+}
+.table-container tr:nth-child(even){background-color: #f2f2f2;}
+.table-container tr:hover {background-color: #ddd;}
+.table-container input{
+    border: none;
+    outline: none;
+    width: 3em;
+    height:2.6em;
+    padding: 3px 3px 3px 3px;
+    text-align: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.table-container input:focus{
+    border: none;
+    outline: none;
+    width: 3em;
+    height:2.6em;
+    padding: 3px 3px 3px 3px;
+    text-align: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;   
+}
+.last{
+    padding-right: 2em;
+}
+.table-container img{
+    width: 9em;
+    padding-top: 2em;
+}
+.small-p{
+    width: 16em;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+}
+.delete-button{
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: rgb(174, 35, 35);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.delete-button:hover{
+    background-color: transparent;
+    border: none;
+    font-weight: 800;
+    font-size: 0.9em;
+    color: rgb(174, 35, 35);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
