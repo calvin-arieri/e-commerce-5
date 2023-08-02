@@ -1,6 +1,12 @@
 import Delete from "../Delete"
 import './table.css'
-function ViewProducts({shop_products, state}){   
+import {useState} from 'react'
+function ViewProducts({shop_products, searchValue, currentCategory}){  
+    function handleQuantity(e){
+        let value, id
+        value = e.target.value
+        id=e.target.id  
+    } 
     return(
         <div className="table-container">
             <tr>
@@ -14,7 +20,7 @@ function ViewProducts({shop_products, state}){
                 <th>Price</th>
                 <th className="last"></th>
             </tr>
-            {shop_products[0] == undefined ? '...loading' : shop_products.map((product)=>{
+            {shop_products[0] == undefined ? currentCategory != 'All' ? 'Oops! No products under this category': searchValue > 0 ? 'Ooops!Product not found' : '...loading' : shop_products.map((product)=>{
                 return(
                     <tr key={product.id}>
                         <td>
@@ -36,6 +42,8 @@ function ViewProducts({shop_products, state}){
                             <input
                             type="number"
                             placeholder={product.quantity}
+                            onChange={handleQuantity}
+                            id={product.id}
                             />
                         </td>
                         <td>
