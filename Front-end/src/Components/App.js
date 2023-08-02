@@ -1,9 +1,11 @@
 import React from 'react';
 //import Navbar from './Navbar'; // Use './' to indicate the file path for importing components
 import './App.css'; // Use './' to indicate the file path for importing CSS files
+import SellerProducts from './seller/SellerProducts';
 const App = () => {
   return (
     <div>
+      <SellerProducts />
     </div>
   );
 };
