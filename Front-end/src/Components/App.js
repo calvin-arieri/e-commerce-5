@@ -5,7 +5,6 @@ import SellerProducts from './seller/SellerProducts';
 const App = () => {
   return (
     <div>
-      <SellerProducts />
     </div>
   );
 };
