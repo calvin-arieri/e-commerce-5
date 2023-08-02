@@ -82,7 +82,7 @@ function SignUp(){
                     <div className='scrollable scroll'>
                         <label htmlFor='first_name'>Full names<span className='color-red'>*</span></label>
                         <div className='display-flex'>
-                            <div className='flex-column'>
+                            <div>
                                 <input
                                 onChange={formik.handleChange}
                                 value={formik.values.first_name}
@@ -94,7 +94,7 @@ function SignUp(){
                                 <p>{formik.errors.first_name}</p>
                             </div>
 
-                            <div className='flex-column'>
+                            <div>
                                 <input
                                 onChange={formik.handleChange}
                                 value={formik.values.second_name}
@@ -160,6 +160,7 @@ function SignUp(){
                         name='password'
                         onChange={formik.handleChange}
                         type='password'
+                        placeholder='Password'
                         />
                         <p>{formik.errors.password}</p>
 
