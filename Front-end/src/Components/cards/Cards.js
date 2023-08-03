@@ -29,5 +29,8 @@ function Cards() {
 }
 
 export default Cards
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> Development

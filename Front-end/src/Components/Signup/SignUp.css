@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+  width: 32em; 
+  background-color: #ffffff;
+  padding: 10px 30px;
+  font-size: 0.8em;
+  font-family: "Poppins", sans-serif;
+}
+.card_title {
+  text-align: center;
+  padding: 10px;
+}
+.form-field input{
+  margin: 1px 0;
+  width: 85%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+.card a{
+    text-decoration: none;
+}
+.card a:hover{
+    text-decoration: none;
+    color: #4796ff;
+}
+.display-flex{
+    display: flex;
+    gap:1;
+}
+.display-flex input{
+    width: 9.5em;
+    margin-right:3em;
+}
+
+input::placeholder {
+    font-size: 0.8em;
+}
+.form-field p{
+    font-weight: 200;
+}
+
+.scrollable.scroll{
+    scrollbar-width: none;
+    height: 26em;
+    overflow-x: hidden;
+}
+
+#submit{  
+  background-color: #4796ff;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+  width: 6em;
+  margin-left: 7em;
+  margin-top: 1em;
+}
+#submit:hover{  
+  background-color: #5ca3ff;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+  width: 6em;
+  margin-left: 7em;
+  margin-top: 1em;
+  cursor:pointer;
+}
+.color-red{
+  color:red;
+}

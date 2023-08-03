@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './navbar/NavBar';
@@ -19,6 +20,12 @@ const App = () => {
         <Route path="/Cart" element={<Cart />} />
       </Routes>
 
+=======
+import './App.css'; // Use './' to indicate the file path for importing CSS files
+const App = () => {
+  return (
+    <div>      
+>>>>>>> Development
     </div>
     // </Router>
    
