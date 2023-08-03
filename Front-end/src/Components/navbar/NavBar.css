@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Poppins:wght@300&display=swap');
+
+.container-nav{
+    display: flex;
+    margin-top: 0.2em;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 100%;
+}
+.search-input{
+  padding: 7px;
+  border-radius: 6px;
+  font-size: 16px;
+  background: #fbfbfb;
+  border: 2px solid transparent;
+  height: 3.5em;
+  margin-right: 0.5em;
+  box-shadow: 0 0 0 1px #dddddd, 0 2px 4px 0 rgb(0 0 0 / 7%), 0 1px 1.5px 0 rgb(0 0 0 / 5%);
+  margin-top: 0.5em;
+}
+
+nav ul{
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+    font-size: 2em;
+    margin-right: 0.5em;
+    margin-top: 0.3em;
+  }
+li{
+    list-style: none;
+  }
+
+  li:hover{
+    list-style: none;
+    background-color: rgb(250, 246, 246);
+    border-radius: 10px;
+  }
+  
+.container-nav a{
+     color: black;
+     text-decoration: none;
+}
+.container-nav a:hover{
+    color: grey;
+    text-decoration: none;
+}
+
+
+.search-input :focus{
+    border: 2px solid #000;
+    border-radius: 4px;
+} 
+.search-bar{
+    display: flex;
+}
+
+
+.button-47 {
+  align-items: center;
+  background: #FFFFFF;
+  border: 0 solid #E2E8F0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  color: #1A202C;
+  display: inline-flex;
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  height: 56px;
+  justify-content: center;
+  line-height: 24px;
+  overflow-wrap: break-word;
+  padding: 24px;
+  text-decoration: none;
+  width: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 0.4em;
+}
+.logo img{
+    width: 16em;
+    border-radius: 20px;
+    padding: 0.5em;
+    
+}
