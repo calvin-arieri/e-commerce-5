@@ -6,7 +6,7 @@
   width: 32em; 
   background-color: #ffffff;
   padding: 10px 30px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-family: "Poppins", sans-serif;
 }
 .card_title {
@@ -34,8 +34,8 @@
     gap:1;
 }
 .display-flex input{
-    width: 9.5em;
-    margin-right:3em;
+    width: 9em;
+    margin-right: 5em;
 }
 
 input::placeholder {
@@ -76,6 +76,11 @@ input::placeholder {
   margin-top: 1em;
   cursor:pointer;
 }
-.color-red{
-  color:red;
+.top{
+  width: 90.5em;
+  height: 43.5em;
+  background-color:  rgb(220,220,220);
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
 }

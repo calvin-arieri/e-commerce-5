@@ -38,7 +38,14 @@ function LogIn(){
         }
     )
     return(
+        <div className="top-most">
         <div className="form-container" >
+            <div className="card-title">
+                <h1>Log in</h1>
+                <p>
+                    Do not have account? <a href="#signup">get started</a>
+                </p>
+            </div>
             <form onSubmit={formik.handleSubmit} className='form-styling'>
                 <label htmlFor="email">Email</label>
                 <input
@@ -47,6 +54,7 @@ function LogIn(){
                 onChange={formik.handleChange}
                 value={formik.values.email}
                 name="email"
+                placeholder="Email"
                 />
                 <p>{formik.errors.email}</p>
                 <label htmlFor="password">Password </label>
@@ -56,18 +64,18 @@ function LogIn(){
                 onChange={formik.handleChange}
                 value={formik.values.password}
                 name="password"
+                placeholder="password"
                 />
                 <p>{formik.errors.password}</p>
                 <div className='bottom-Icons'>
                     <input
                     type="submit"
                     value= 'log in'
-                    />
-                    <button>
-                        Sign Up
-                    </button>    
+                    id="submit"
+                    /> 
                 </div>                
             </form>
+        </div>        
         </div>
     )
 }

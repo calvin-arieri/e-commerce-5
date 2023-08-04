@@ -73,6 +73,7 @@ function SignUp(){
     )
     return(
         <form onSubmit={formik.handleSubmit}>
+            <div className='top'>
             <div className='card'>
                 <div class="card_title">
                     <h2>Create Account</h2>
@@ -82,7 +83,7 @@ function SignUp(){
                     <div className='scrollable scroll'>
                         <label htmlFor='first_name'>Full names<span className='color-red'>*</span></label>
                         <div className='display-flex'>
-                            <div>
+                            <div className='flex-column'>
                                 <input
                                 onChange={formik.handleChange}
                                 value={formik.values.first_name}
@@ -94,7 +95,7 @@ function SignUp(){
                                 <p>{formik.errors.first_name}</p>
                             </div>
 
-                            <div>
+                            <div className='flex-column'>
                                 <input
                                 onChange={formik.handleChange}
                                 value={formik.values.second_name}
@@ -160,7 +161,6 @@ function SignUp(){
                         name='password'
                         onChange={formik.handleChange}
                         type='password'
-                        placeholder='Password'
                         />
                         <p>{formik.errors.password}</p>
 
@@ -181,8 +181,14 @@ function SignUp(){
                     />
                 </div>    
             </div>
+            </div>
         </form>
     )
 }
 
 export default SignUp;
+
+
+
+
+

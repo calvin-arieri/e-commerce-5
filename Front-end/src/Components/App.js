@@ -10,6 +10,7 @@ const App = () => {
   return (
     // <Router>
     <div>
+      
       <NavBar />
 
 
