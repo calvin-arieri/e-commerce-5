@@ -1,6 +1,7 @@
 import {useFormik} from 'formik'
 import * as YUP from 'yup'
 import './SignUp.css'
+import { NavLink } from 'react-router-dom';
 
 function SignUp(){
     const formSchema = YUP.object().shape(
@@ -77,7 +78,7 @@ function SignUp(){
             <div className='card'>
                 <div class="card_title">
                     <h2>Create Account</h2>
-                    <span>Already have an account? <a href="login">Sign In</a></span>
+                    <span>Already have an account? <NavLink to="/LogIn">Sign In</NavLink></span>
                 </div>
                 <div className='form-field'>
                     <div className='scrollable scroll'>

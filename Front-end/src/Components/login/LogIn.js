@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import * as Yup from 'yup'
 import './LogIn.css'
+import { NavLink } from 'react-router-dom';
 function LogIn(){
     const formSchema = Yup.object().shape(
         {
@@ -43,7 +44,7 @@ function LogIn(){
             <div className="card-title">
                 <h1>Log in</h1>
                 <p>
-                    Do not have account? <a href="#signup">get started</a>
+                    Do not have account? <NavLink to='/SignUp'>get started</NavLink>
                 </p>
             </div>
             <form onSubmit={formik.handleSubmit} className='form-styling'>

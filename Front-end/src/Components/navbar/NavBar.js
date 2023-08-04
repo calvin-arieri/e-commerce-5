@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import "./NavBar.css";
 import banner2 from '../images/banner2.png'
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import HomeIcon from '@mui/icons-material/Home';
+// import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+// import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+// import HomeIcon from '@mui/icons-material/Home';
 
 
 function NavBar() {
@@ -14,7 +14,7 @@ function NavBar() {
     <div className="container-nav">
 
       <div className="logo">
-       <img src={banner2} />
+       <img src={banner2}/> 
       </div>
 
       <div className="search-bar">
@@ -30,22 +30,22 @@ function NavBar() {
         <nav>
           <ul>
             <li>
-              <NavLink to="/"><HomeIcon /></NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-            <NavLink to="/Account"><NavDropdown title={<AccountCircleIcon />} id="navbarScrollingDropdown">
-            <NavDropdown.Item href="SignUp">SignUp</NavDropdown.Item>
-              <NavDropdown.Item href="LogIn">
-                Log In
+            <NavDropdown title="Account" id="navbarScrollingDropdown">
+            <NavDropdown.Item href="signUp"><NavLink to="/SignUp">SignUp</NavLink></NavDropdown.Item>
+              <NavDropdown.Item href="log in">
+              <NavLink to="/LogIn">LogIn</NavLink>
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="account">
-                Account
+                <NavLink to="/Account">Seller</NavLink>
               </NavDropdown.Item>
-              </NavDropdown></NavLink>
+              </NavDropdown>
             </li>
             <li>
-              <NavLink to="/Cart"><AddShoppingCartIcon /></NavLink>
+              <NavLink to="/Cart">Cart</NavLink>
             </li>
           </ul>
         </nav>
