@@ -24,9 +24,9 @@ const App = () => {
   return (
    
     <div>
-      {/* <SlideCard /> */}
+      <SlideCard />
 
-      <Description />
+      {/* <Description /> */}
       
       
 
