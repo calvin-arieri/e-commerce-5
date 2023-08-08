@@ -1,22 +1,32 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
-import "./SellerPage.css"
-import Dashboard from '../seller/Dashboard';
-
+import { NavLink, Outlet } from 'react-router-dom';
+import "./seller.css"
+import DeleteSession from '../handleSession/DeleteSession';
 
 function SellerPage() {
   return (
-    <div className='main-account'>
-      <div className='sidenav-bar'>
-        <div> <NavLink to='/Dashboard' >Dashboard</NavLink></div>       
-        <div><NavLink to='/Account/Products' >Products</NavLink></div>
-        <div><NavLink to='/Account/Orders' >Orders</NavLink></div>
-        <div><NavLink to='/Account/Add'  >Add Product</NavLink></div>
-        <div><NavLink to='/Account/Add'  >UpdateProfile</NavLink></div>
+    <div className = "seller-page-container">
+
+        <div className='left-bar-side'>
+        <div className='side-nav-intro'>
+        <div>
+          <img src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGVvcGxlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60' alt="user"/>
+        </div>
+        
+        <p>
+          <span>Augustine</span> <span>Mwangi</span>
+        </p>
+        <NavLink to='/admin/update'>Update</NavLink>
       </div>
-      <div className='changes-56'>
-        <Dashboard />
-      </div>      
+        <NavLink to='/admin/dashboard'  >Dashboard</NavLink>
+        <NavLink to='/admin/products'  >Products</NavLink>
+        <NavLink to='/admin/orders'  >Orders</NavLink>
+        <NavLink to='/admin/add'  >Add Product</NavLink>
+        <DeleteSession />
+        </div>
+        <div>
+            <Outlet />
+        </div>
     </div>
   )
 }

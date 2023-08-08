@@ -16,27 +16,29 @@ function AddProduct(){
            description:Yup.string()
            .required('Description or the features of the product must be added')
            .min(20 , 'The description should be more than 20 characters')
-           .max(200, 'The description must not exceed 200 characters')
+           .max(200, 'The description must not exceed 200 characters'),
+           specs: Yup.string()
+           .required('Must no be left empty')
+           .min(20 , "Add more info")
+           .max(400, "Enough info")
         }
     )
     const formik = useFormik(
         {
             initialValues:{
-                image_url: " ",
-                name:" ",
-                price: ' ',
-                quantity: ' ',
-                category: ' ',
-                description:' ', 
-                rating: 0,
-                mp: 0,
-                cp:0,
+                image_url: "",
+                name:"",
+                price: 0,
+                quantity: 0,
+                category: '',
+                description:'',
+                specs: '' ,
                 user_id: id
             },
             validationSchema:formSchema,
             onSubmit:(values)=>{
                 console.log(values)
-                fetch('http://localhost:3000/products', {
+                fetch('http://127.0.0.1:5555/products', {
                     method:'POST',
                     headers:{
                         'Content-Type':'application/json'
@@ -133,6 +135,19 @@ function AddProduct(){
                     </textarea>    
                     <p>
                         {formik.errors.description}
+                    </p>
+
+                    <label htmlFor='specs'>Specifications</label>
+                    <textarea
+                    value={formik.values.specs}
+                    onChange={formik.handleChange}
+                    name='specs'
+                    className='text-area-height'
+                    placeholder='Specifications here'
+                    >
+                    </textarea>    
+                    <p>
+                        {formik.errors.specs}
                     </p>
 
                     <input
