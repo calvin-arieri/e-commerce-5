@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import NavBar from './navbar/NavBar';
 import Account from './pages/Account';
 import Cart from './pages/Cart';
@@ -11,32 +11,43 @@ import SellerProducts from './seller/SellerProducts'
 import SellerOrders from './seller/SellerOrders';
 import AddProduct from './addproduct/AddProduct';
 import SellerPage from './pages/SellerPage';
+import Footer from './footer/Footer';
+import SideBar from './pages/home/SideBar';
+import Description from './pages/Description';
+import SlideCard from './pages/home/SlideCard';
+
+
+
 
 
 const App = () => {
   return (
-    // <Router>
+   
     <div>
+      {/* <SlideCard /> */}
+
+      <Description />
       
-      <NavBar />
+      
+
+       {/* <NavBar />
 
 
       <Routes>
         <Route exact path='/' element={<Home/>} />
-        <Route path="/Account" element={<SellerPage/>} >
-          <Route path='/Account/SellerPage' elements={<Dashboard />} />
-          <Route path='/Account/Products' elements={<SellerProducts />} />
-          <Route path='/Account/Orders' elements={<SellerOrders />} />
-          <Route path='/Account/Add' elements={<AddProduct />} />
-        </Route>
+        <Route path="/Account" element={<SellerPage/>} />      
         <Route path='/LogIn' element={<LogIn />} /> 
         <Route path="/SignUp"  element={<SignUp />} /> 
         <Route path="/Cart" element={<Cart />} />
         
-      </Routes>
+        
+      </Routes> */}
+
+      
+
 
     </div>
-    // </Router>
+   
    
 
 

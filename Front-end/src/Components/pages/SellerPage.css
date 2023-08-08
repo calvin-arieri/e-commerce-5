@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Poppins:wght@300&display=swap');
+.sidenav-bar{
+    top: 0;
+    bottom: 0;   
+    left: 0;
+    border-color: #6200ee;
+    background-color: rgb(25,25,112);
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    font-family: 'Poppins', sans-serif;
+}
+.sidenav-bar a{
+    text-decoration: none;
+    padding: 0.5em;
+    font-size: 2em;
+    color: white;
+}
+.sidenav-bar div{
+    margin-top: 3em;
+    margin-right: 3em;
+    margin-left: 3em;
+}
+.main-account{
+    display: flex;
+}
+.scroll-here{
+    overflow-y: scroll !important ;
+    height: 50em;
+    /* width:100em; */
+}
+.changes-56{
+    flex-grow: 1;
+}
+.left-card{
+    display: flex;
+    flex-direction: column;
+    width: 11em;
+    gap:1em;
+}
+.left-card button{
+ height: 3em;
+ margin-left: 2em;
+}
+.right-card {
+    width: 90em;
+    margin-top: 1em;
+    margin-left: 2em;
+    height: 5em;
+}
+.home-container{
+    display: flex;
+}
