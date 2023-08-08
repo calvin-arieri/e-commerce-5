@@ -12,6 +12,8 @@ import SellerOrders from './seller/SellerOrders';
 import AddProduct from './addproduct/AddProduct';
 import UpdateProfile from './updateprofile/UpdateProfile';
 
+
+
 const App = () => {
   return (
     // <Router>
@@ -19,7 +21,7 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route exact path='/' element={<Home/>} />
-        <Route path="/admin" element={<SellerPage/>} >
+        <Route path="/admin/" element={<SellerPage/>} >
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<SellerProducts />} />
           <Route path='orders' element={<SellerOrders />} />
@@ -37,6 +39,7 @@ const App = () => {
 
 
     </div>
+ 
    
    
 

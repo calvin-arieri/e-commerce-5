@@ -35,7 +35,7 @@ let filtered_products = search.filter((product)=>{
         return search
     }
 })
-  // let categories = ['All','Televisions' , 'Laptops', 'Smartphones', 'Tablets', 'Cameras']
+  let categories = ['All','Televisions' , 'Laptops', 'Smartphones', 'Tablets', 'Cameras']
   return(
    <div>
 
