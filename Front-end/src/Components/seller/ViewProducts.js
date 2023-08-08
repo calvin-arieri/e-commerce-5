@@ -5,7 +5,23 @@ function ViewProducts({shop_products, searchValue, currentCategory}){
     function handleQuantity(e){
         let value, id
         value = e.target.value
-        id=e.target.id  
+        id=e.target.id
+        setTimeout(()=>{fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PATCH',
+            headers:{
+                'Content-Type':'application/json',
+            },
+            body:JSON.stringify({quantity:value})
+        })
+        .then((r)=>{
+            if(r.ok){              
+                window.location.reload(false)
+            }
+            else{
+                alert('Sorry the process was no successfull pleas try again later')
+            }
+        })
+    }, 3000)
     } 
     return(
         <div className="table-container">

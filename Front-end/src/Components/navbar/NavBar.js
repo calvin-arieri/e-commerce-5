@@ -40,7 +40,7 @@ function NavBar() {
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="account">
-                <NavLink to="/Account">Seller</NavLink>
+                <NavLink to="/admin/dashboard">Seller</NavLink>
               </NavDropdown.Item>
               </NavDropdown>
             </li>

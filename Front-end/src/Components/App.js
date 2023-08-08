@@ -2,32 +2,29 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NavBar from './navbar/NavBar';
-import Account from './pages/Account';
 import Cart from './pages/Cart';
 import LogIn from './login/LogIn';
 import SignUp from './Signup/SignUp';
 import Dashboard from './seller/Dashboard';
-import SellerProducts from './seller/SellerProducts'
+import SellerPage from './pages/SellerPage';
+import SellerProducts from './seller/SellerProducts';
 import SellerOrders from './seller/SellerOrders';
 import AddProduct from './addproduct/AddProduct';
-import SellerPage from './pages/SellerPage';
-
+import UpdateProfile from './updateprofile/UpdateProfile';
 
 const App = () => {
   return (
     // <Router>
-    <div>
-      
+    <div>    
       <NavBar />
-
-
       <Routes>
         <Route exact path='/' element={<Home/>} />
-        <Route path="/Account" element={<SellerPage/>} >
-          <Route path='/Account/SellerPage' elements={<Dashboard />} />
-          <Route path='/Account/Products' elements={<SellerProducts />} />
-          <Route path='/Account/Orders' elements={<SellerOrders />} />
-          <Route path='/Account/Add' elements={<AddProduct />} />
+        <Route path="admin" element={<SellerPage/>} >
+          <Route path='dashboard' element={<Dashboard />} />
+          <Route path='products' element={<SellerProducts />} />
+          <Route path='orders' element={<SellerOrders />} />
+          <Route path='add' element={<AddProduct />} />
+          <Route path='update' element={<UpdateProfile />} />
         </Route>
         <Route path='/LogIn' element={<LogIn />} /> 
         <Route path="/SignUp"  element={<SignUp />} /> 

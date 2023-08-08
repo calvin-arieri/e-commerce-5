@@ -43,7 +43,8 @@ function SignUp(){
             confirm_password: YUP
             .string()
             .required('Required to re-enter the password!')
-            .oneOf([YUP.ref('password'), null], 'Password does not match')
+            .oneOf([YUP.ref('password'), null], 'Password does not match'),
+            role:YUP.string().required('Must choose role')
         }
     )
     const formik = useFormik(
@@ -55,20 +56,28 @@ function SignUp(){
                 email: '',
                 phone_number: '',
                 address: '',
-                password: '',               
+                password: '',
+                role: '',      
             },
             validationSchema: formSchema,
             onSubmit:(values)=>{
                 console.log('hello world')
                 console.log(values)
-                fetch('',{
+                fetch('http://127.0.0.1:5555/users',{
                     method: 'POST',
                     headers:{
                         'Content-Type':'application/json',
                     },
                     body: JSON.stringify(values)
                 })
-                .then((r)=>console.log(r))
+                .then((r)=>{
+                    if(r.ok){
+                        alert(`${values.first_name} ${values.second_name} added successfuly please log in.`)
+                        setTimeout(()=>{
+                            window.location.reload(false)
+                        }, 3000)
+                    }
+                })
             }
         }
     )
@@ -156,6 +165,22 @@ function SignUp(){
                         />
                         <p>{formik.errors.address}</p>
 
+                        <label htmlFor='role'>Role<span className='color-red'>*</span></label>
+                        <br />
+                        <select
+                        onChange={formik.handleChange}
+                        value={formik.values.role}
+                        name='role'
+                        placeholder='choose role'
+                        >
+                            <option>Choose Role</option>
+                            <option>Buyer</option>
+                            <option>Seller</option>
+                        </select>
+
+                        <p>{formik.errors.role}</p>
+
+                        <br />
                         <label htmlFor='password'>Password</label>
                         <input
                         value={formik.values.password}
