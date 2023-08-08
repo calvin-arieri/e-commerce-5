@@ -23,7 +23,7 @@ function SlideCard() {
     speed: 500,
     nextArrow: <Arrow />,
       prevArrow: <Arrow />,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 2,
     initialSlide: 0,
     responsive: [
