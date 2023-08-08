@@ -17,8 +17,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .info-part{
-    display: flex; 
-    
+    display: flex;     
 }
 .more-details{
     display: flex;
@@ -46,8 +45,7 @@
     margin-left: 5em;
     text-align: justify;
 }
-.info-part p{
-    margin-left: 28em;
+.info-part p{    
     font-size: 1em;
     font-weight:900;
     background-color:  rgb(229,228,226);
@@ -55,9 +53,10 @@
     height: 1.3em;
     text-align: center;
     border-radius: 8px;
+    justify-self: flex-end;
 }
 .shop-info div{
-    width: 14.8em;
+    width: 23em;
     background-color: white;
     margin-left: 4em;
     font-weight: 400;
@@ -103,7 +102,7 @@ td p{
 }
 .the-table td{
     padding: 0.5em;
-    width:7em;   
+    width:12.2em;   
 }
 .the-table th{
     padding: 0.6em;
@@ -117,7 +116,7 @@ td p{
 .the-table tr:hover {background-color: #ddd;}
 
 .aside{
-    width: 14.8em;
+    width: 23.9em;
     background-color: white;
     margin-left: 4em;
     font-weight: 400;

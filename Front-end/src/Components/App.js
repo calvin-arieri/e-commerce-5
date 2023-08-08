@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import Home from './pages/home/Home';
 import NavBar from './navbar/NavBar';
 import Cart from './pages/Cart';
 import LogIn from './login/LogIn';
@@ -30,10 +30,14 @@ const App = () => {
         <Route path="/SignUp"  element={<SignUp />} /> 
         <Route path="/Cart" element={<Cart />} />
         
+        
       </Routes>
 
+      
+
+
     </div>
-    // </Router>
+   
    
 
 
