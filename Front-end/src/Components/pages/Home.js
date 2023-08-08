@@ -51,8 +51,7 @@ let filtered_products = search.filter((product)=>{
                     })
                 }
       </div>
-      <div className='right-card'>
-        
+      <div className='right-card'>        
       </div>
     </div>
   </div>

@@ -16,9 +16,8 @@ function LogIn(){
                 password: "",
             },
             validationSchema: formSchema,
-            onSubmit:(values)=>{
-                console.log(values)
-                fetch('/session' , 
+            onSubmit:(values)=>{              
+                fetch('http://127.0.0.1:5555/login' , 
                 {
                     method : 'POST',
                     headers:{
@@ -26,14 +25,9 @@ function LogIn(){
                     },
                     body:JSON.stringify(values)
                 })
-                .then((r)=>{
-                    if(r.ok){
-                        alert('Successfuly logged in')
-                        r.json()
-                    }
-                })
-                .then((data)=>{
-                    console.log(data)
+                .then((r)=>r.json())
+                .then((user_detail)=>{
+                    console.log(user_detail)
                 })
             }
         }
@@ -75,7 +69,7 @@ function LogIn(){
                     id="submit"
                     /> 
                 </div>                
-            </form>
+            </form>            
         </div>        
         </div>
     )
