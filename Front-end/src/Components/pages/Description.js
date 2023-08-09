@@ -1,46 +1,67 @@
-import React from 'react'
-import './Description.css'
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import AwesomeSlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
+
+// function Arrow(props) {
+//   const { className, style, onClick } = props;
+//   return (
+//     <div
+//       className={className}
+//       style={{ ...style, display: 'block', background: 'black' }}
+//       onClick={onClick}
+//     />
+//   );
+// }
 
 function Description() {
+  const [cards, setCards] = useState([
+    { id: 1, title: "one" },
+    { id: 2, title: "two" },
+    { id: 3, title: "three" },
+  ]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/cards")
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log("cards data",data)
+        setCards(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
   return (
-    <div>
-        <h1 className="text-center">Description</h1>
-        <section id="testimonials">
-      <div className="testimonials">
-        <div className="testimonial">
-          <p>
-          I recently traveled to Nairobi and used the tourism service for my trip, and I must say that they exceeded my expectations. 
-          The team was extremely helpful in planning out my itinerary, and they made sure to take into account my specific interests and preferences. 
-          The tours and activities they arranged were top-notch, and I felt like I got a true taste of Nairobi's culture and history. I highly recommend this tourism service to anyone planning a trip to Nairobi!
-          </p>
-          <div className="info">
-            <img src='https://images.unsplash.com/photo-1534614971-6be99a7a3ffd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
-             alt="" />
-            <div className="details">
-              <h4>Tim Reed</h4>
-              <span>Regular User of Adventour</span>
+    <AwesomeSlider className="h-[50vh] mt-90px">
+      {
+        cards.map((value) => {
+          return (
+            <div key={value.id} className="flex-1 " >
+
+              <div className="w-full  cursor-pointer" >
+                <img
+                  src={value.cover}
+                  className="w-100 h-200em"
+                  style={{ position: "absolute", zIndex: "0"}}
+                />
+              </div>
+                
+              <div className="block"  >
+                  <h3
+                    className=" text-[80px] text-left "   
+                    style={{ position: "relative", zIndex: "1" , color:"#ffff"}}                 
+                  >
+                    {value.title}
+                  </h3>
+              </div>
+
             </div>
-          </div>
-        </div>
-        <div className="testimonial">
-          <p>
-          I traveled to Nairobi with a group of friends and we used the tourism service to help us plan our trip. 
-          I have to say, I was really impressed with their level of professionalism and expertise. They were able to recommend the best restaurants, hotels, and activities for our group, and they even helped us navigate the local transportation system. 
-          Thanks to their guidance, we had a fantastic time in Nairobi and I would definitely use their services again.
-          </p>
-          <div className="info">
-            <img src='https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
-             alt="" />
-            <div className="details">
-              <h4>Chris Brown</h4>
-              <span>Regular User of Adventour</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    </div>
-  )
+          
+          );
+        })}
+    </AwesomeSlider>
+  );
 }
 
-export default Description
+export default Description;

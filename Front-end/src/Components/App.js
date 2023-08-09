@@ -20,11 +20,18 @@ import SlideCard from './pages/home/SlideCard';
 
 
 
+
+
 const App = () => {
   return (
-   
-    <div>
-      <SlideCard />
+   <>
+    <div >
+      {/* <SlideCard />+ */}
+      <Description />
+ 
+      
+
+
 
       {/* <Description /> */}
       
@@ -47,6 +54,7 @@ const App = () => {
 
 
     </div>
+    </>
    
    
 

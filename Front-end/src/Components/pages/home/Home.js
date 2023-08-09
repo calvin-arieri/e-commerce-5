@@ -34,7 +34,7 @@ let filtered_products = search.filter((product)=>{
         return search
     }
 })
-  // let categories = ['All','Televisions' , 'Laptops', 'Smartphones', 'Tablets', 'Cameras']
+  let categories = ['All','Televisions' , 'Laptops', 'Smartphones', 'Tablets', 'Cameras']
   return(
    <div>
 
@@ -47,24 +47,24 @@ let filtered_products = search.filter((product)=>{
         </div>
       </div>
 
-    <div className='wrapper'>
-      <div className='sidenavbar'>
-        <h2>SideBar</h2>
-        <ul>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-        </ul>
+    <div className='side-navbar'>
+      <div className='left-navbar'>
+      {  categories.map((category)=>{
+          return(
+            <button className='navbar-button'
+            id={category}
+            key={category}
+            onClick={(e)=>{
+            setCategory(e.target.id)
+          }}
+          >{category}</button>
+                        )
+                    })
+                }
       </div>
-      {/* <div className='slidecard'>
+      <div className='slidecard'>
         <SlideCard />
-      </div> */}
+      </div>
     </div>
 
   </div>
