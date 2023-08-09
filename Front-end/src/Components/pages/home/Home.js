@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SlideCard from './SlideCard';
 import './Home.css'
+import Cards from '../../cards/Cards';
 
 
 const Home = ({searchLenght, lookingFor}) => {
@@ -47,27 +48,10 @@ let filtered_products = search.filter((product)=>{
         </div>
       </div>
 
-    <div className='wrapper'>
-      <div className='sidenavbar'>
-        <h2>SideBar</h2>
-        <ul>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-        </ul>
-      </div>
-      {/* <div className='slidecard'>
-        <SlideCard />
-      </div> */}
+      <Cards />
     </div>
 
-  </div>
+
   )
 };
 export default Home;

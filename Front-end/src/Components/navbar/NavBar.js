@@ -30,7 +30,7 @@ function NavBar() {
               <NavLink to="/LogIn">LogIn</NavLink>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="account">
+              <NavDropdown.Item href="admin/dashboard">
                 <NavLink to="/admin/dashboard">Seller</NavLink>
               </NavDropdown.Item>
               </NavDropdown>

@@ -5,7 +5,7 @@ import './Cards.css'
 function Cards() {
   const [products, setProducts] = useState([])
   useEffect (() => {
-    fetch('http://localhost:3001/products')
+    fetch('http://127.0.0.1:5555/products')
     .then(res => {
       return res.json()
     }).then(data => {

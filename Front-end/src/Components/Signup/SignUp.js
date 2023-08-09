@@ -63,7 +63,7 @@ function SignUp(){
             onSubmit:(values)=>{
                 console.log('hello world')
                 console.log(values)
-                fetch('http://127.0.0.1:5555/users',{
+                fetch('http://127.0.0.1:5555/signup',{
                     method: 'POST',
                     headers:{
                         'Content-Type':'application/json',
@@ -75,8 +75,12 @@ function SignUp(){
                         alert(`${values.first_name} ${values.second_name} added successfuly please log in.`)
                         setTimeout(()=>{
                             window.location.reload(false)
-                        }, 3000)
+                        }, 1000)
                     }
+                    else {
+                        alert ("Sign up unsuccessfully")
+                    }
+                    
                 })
             }
         }
