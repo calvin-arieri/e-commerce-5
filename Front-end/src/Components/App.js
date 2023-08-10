@@ -11,15 +11,18 @@ import SellerProducts from './seller/SellerProducts';
 import SellerOrders from './seller/SellerOrders';
 import AddProduct from './addproduct/AddProduct';
 import UpdateProfile from './updateprofile/UpdateProfile';
+import Description from './pages/Description';
+
+
 
 const App = () => {
   return (
-    // <Router>
+ 
     <div>    
       <NavBar />
       <Routes>
         <Route exact path='/' element={<Home/>} />
-        <Route path="admin" element={<SellerPage/>} >
+        <Route path="/admin/" element={<SellerPage/>} >
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<SellerProducts />} />
           <Route path='orders' element={<SellerOrders />} />
@@ -29,7 +32,7 @@ const App = () => {
         <Route path='/LogIn' element={<LogIn />} /> 
         <Route path="/SignUp"  element={<SignUp />} /> 
         <Route path="/Cart" element={<Cart />} />
-        
+
         
       </Routes>
 
@@ -37,6 +40,7 @@ const App = () => {
 
 
     </div>
+ 
    
    
 

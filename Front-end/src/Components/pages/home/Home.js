@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
-import SlideCard from './SlideCard';
 import './Home.css'
+import Cards from '../../cards/Cards';
+import Courosel from './Courosel';
+import Footer from '../../footer/Footer';
+import Description from '../Description';
+
 
 
 const Home = ({searchLenght, lookingFor}) => {
@@ -34,40 +38,26 @@ let filtered_products = search.filter((product)=>{
         return search
     }
 })
-  // let categories = ['All','Televisions' , 'Laptops', 'Smartphones', 'Tablets', 'Cameras']
+  let categories = ['All','Televisions' , 'Laptops', 'Smartphones', 'Tablets', 'Cameras']
   return(
    <div>
 
       <div className="search-bar">
         <div className="search">  
-          <input className='search-input' placeholder="search" name="name" />           
+          <input className='search-input' placeholder="search products, categories, items ..." name="name" />           
         </div>
         <div className="search-button">
-        <button className='button-47' type="submit">SEARCH</button>
+        <button className='button-47' type="submit">search</button>
         </div>
       </div>
 
-    <div className='wrapper'>
-      <div className='sidenavbar'>
-        <h2>SideBar</h2>
-        <ul>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-          <li><a href=''></a></li>
-        </ul>
-      </div>
-      {/* <div className='slidecard'>
-        <SlideCard />
-      </div> */}
+      <Courosel />
+      <Cards />
+      <Footer />
+      {/* <Description /> */}
     </div>
 
-  </div>
+
   )
 };
 export default Home;
