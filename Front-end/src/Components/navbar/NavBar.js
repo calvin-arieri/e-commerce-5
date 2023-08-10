@@ -28,11 +28,7 @@ function NavBar() {
             <NavDropdown.Item href="signUp"><NavLink to="/SignUp">SignUp</NavLink></NavDropdown.Item>
               <NavDropdown.Item href="log in">
               <NavLink to="/LogIn">LogIn</NavLink>
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="admin/dashboard">
-                <NavLink to="/admin/dashboard">Seller</NavLink>
-              </NavDropdown.Item>
+              </NavDropdown.Item>  
               </NavDropdown>
             </li>
             <li>
