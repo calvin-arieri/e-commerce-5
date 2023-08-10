@@ -24,7 +24,8 @@ class User(db.Model, SerializerMixin):
     searches = db.relationship('Search', backref = 'user')   
     
     def to_dict(self):
-        info_dict = {             
+        info_dict = {  
+            "id":self.id,           
             "first_name": self.first_name,
             "second_name": self.second_name,
             "email": self.email,
