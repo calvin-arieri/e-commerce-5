@@ -1,9 +1,10 @@
 import {useFormik} from 'formik'
 import * as YUP from 'yup'
 import './SignUp.css'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 function SignUp(){
+    const navigate = useNavigate();
     const formSchema = YUP.object().shape(
         {
             username: YUP
@@ -72,10 +73,7 @@ function SignUp(){
                 })
                 .then((r)=>{
                     if(r.ok){
-                        alert(`${values.first_name} ${values.second_name} added successfuly please log in.`)
-                        setTimeout(()=>{
-                            window.location.reload(false)
-                        }, 1000)
+                        navigate('/LogIn', { replace: true });
                     }
                     else {
                         alert ("Sign up unsuccessfully")
