@@ -1,16 +1,12 @@
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
+
 function DeleteSession(){
+    const navigate = useNavigate();
     function handleDelete(){
-        fetch('/session', {
-            method: 'DELETE'
-        })
-        .then((r)=>{
-            if(r.ok){
-                alert('Logged out successfully')
-            }
-            else{
-                alert('Not logged out successfully')
-            }
-        })
+        Cookies.remove('user_id');
+        Cookies.remove('role');       
+        navigate('/LogIn', { replace: true }); 
     }
     return(
         <button onClick={handleDelete}>
