@@ -50,6 +50,7 @@ def login():
             "token": token,
             "user":User.query.filter_by(email=email).first().to_dict()
         }),200
+    
     else:
         return jsonify(message="Invalid email or password"), 401  
 
@@ -76,7 +77,6 @@ def get_all_products():
                                quantity = data['quantity'], 
                                category = data['category'], 
                                description =data['description'], 
-                               specs = data['specs'],
                                user_id = data['user_id'],
                             )
          db.session.add(new_product)
@@ -146,7 +146,7 @@ def get_one_user(id):
         return response
     
 @app.route('/product/<int:id>', methods =["GET","PATCH","DELETE"])
-@token_required
+#@token_required
 def get_specific_product(id):
     if request.method == "GET":
         return make_response(
@@ -192,7 +192,7 @@ def certain_comment(id):
             200
         )
 @app.route("/comments/<int:user_id>")
-@token_required 
+# @token_required 
 def get_according_user(user_id):
     products_id = [product.id for product in Product.query.filter_by(user_id = user_id).all()] 
     all_comments = []
@@ -219,11 +219,33 @@ def get_according_user(user_id):
     )
 
 @app.route("/orders", methods = ["GET", "POST"])
-@token_required
+# @token_required
 def get_all_orders():
     if request.method == "GET":
+        all_orders = []
+        all_id = [product.id for product in Product.query.all()]
+        for order in Order.query.all():
+            if order.product_id in all_id :
+                product_ = Product.query.filter_by(id=order.product_id).first().to_dict() 
+                shop  = product_['user_id']          
+                orders_dict = {
+                "id": order.id,
+                "product_name": order.product_name,
+                "customer_name": order.customer_name,
+                "payment_method":order.payment_method,
+                "status": order.status,
+                "quantity":order.quantity,
+                "created_at": order.created_at,
+                "updated_at": order.updated_at,
+                "total_amount": order.total_amount,
+                "product_id": order.product_id,
+                "shop_id" : shop,
+                "user_id": order.user_id,
+                } 
+                all_orders.append(orders_dict)
+
         return make_response(
-            jsonify([order.to_dict() for order in Order.query.all()])
+            jsonify(all_orders)
         )
     elif request.method == "POST":
         data = request.get_json()
@@ -249,7 +271,7 @@ def get_all_orders():
         )
     
 @app.route("/order/<int:id>", methods = ["GET", "PATCH", "DELETE"])
-@token_required
+#@token_required
 def get_an_order(id):
     if request.method == "GET":
         return make_response(
@@ -332,30 +354,36 @@ def get_one_shopping(id):
         return response  
 
 @app.route('/admin/<int:id>')
-@token_required
+#@token_required
 def get_dashboard_details(id):
     user = User.query.filter_by(id=id).first()
     products = Product.query.filter_by(user_id=id).all()
     number_of_products = 0
     orders = 0
     ratings =[]
-    for product in products:
-        number_of_products += 1
-        for comment in Comment.query.filter_by(product_id=product.id).all():
-            ratings.append(comment.rating)
-        for order in Order.query.filter_by(product_id=product.id).all():
-            orders += 1    
+    if user.role == 'Seller':
+        for product in products:
+            number_of_products += 1
+            for comment in Comment.query.filter_by(product_id=product.id).all():
+                ratings.append(comment.rating)
+            for order in Order.query.filter_by(product_id=product.id).all():
+                orders += 1    
+        return make_response(
+        jsonify(
+            {
+                "full_name": f"{user.first_name} {user.second_name}",
+                "id":user.id,
+                "shop_id": f"SHOP00{user.id}",
+                "products": number_of_products,
+                "rating": int(statistics.mean(ratings)),
+                "orders": orders
+            }
+            ),
+            200
+        )
     return make_response(
-       jsonify(
-        {
-            "full_name": f"{user.first_name} {user.second_name}",
-            "shop_id": f"SHOP00{user.id}",
-            "products": number_of_products,
-            "rating": statistics.mean(ratings),
-            "orders": orders
-        }
-        ),
-        200
+        jsonify({"message":"Not authorized"}),
+        404
     )
 
 @app.route('/signup', methods=["POST"])
