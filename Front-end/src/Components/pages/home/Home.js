@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
-import SlideCard from './SlideCard';
 import './Home.css'
 import Cards from '../../cards/Cards';
+import Courosel from './Courosel';
+import Footer from '../../footer/Footer';
+import Description from '../Description';
+
 
 
 const Home = ({searchLenght, lookingFor}) => {
@@ -41,14 +44,17 @@ let filtered_products = search.filter((product)=>{
 
       <div className="search-bar">
         <div className="search">  
-          <input className='search-input' placeholder="search" name="name" />           
+          <input className='search-input' placeholder="search products, categories, items ..." name="name" />           
         </div>
         <div className="search-button">
-        <button className='button-47' type="submit">SEARCH</button>
+        <button className='button-47' type="submit">search</button>
         </div>
       </div>
 
+      <Courosel />
       <Cards />
+      <Footer />
+      {/* <Description /> */}
     </div>
 
 

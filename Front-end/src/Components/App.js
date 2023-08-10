@@ -11,12 +11,13 @@ import SellerProducts from './seller/SellerProducts';
 import SellerOrders from './seller/SellerOrders';
 import AddProduct from './addproduct/AddProduct';
 import UpdateProfile from './updateprofile/UpdateProfile';
+import Description from './pages/Description';
 
 
 
 const App = () => {
   return (
-    // <Router>
+ 
     <div>    
       <NavBar />
       <Routes>
@@ -31,7 +32,7 @@ const App = () => {
         <Route path='/LogIn' element={<LogIn />} /> 
         <Route path="/SignUp"  element={<SignUp />} /> 
         <Route path="/Cart" element={<Cart />} />
-        
+
         
       </Routes>
 

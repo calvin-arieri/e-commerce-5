@@ -1,0 +1,18 @@
+.cards{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    border-radius: 30px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc
+}
+.cards img{
+    border-radius: 60px;
+}
+.container{
+    margin-top: 60px;
+}
+h2{
+    text-align:center ;
+}
