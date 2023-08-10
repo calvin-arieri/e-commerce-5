@@ -1,8 +1,11 @@
 import { useFormik } from "formik";
 import * as Yup from 'yup'
+import Cookies from 'js-cookie';
 import './LogIn.css'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+
 function LogIn(){
+    const navigate = useNavigate();
     const formSchema = Yup.object().shape(
         {
             email:Yup.string().required('Must be filled'),
@@ -27,7 +30,16 @@ function LogIn(){
                 })
                 .then((r)=>r.json())
                 .then((user_detail)=>{
-                    console.log(user_detail)
+                    console.log("User Detail", user_detail);
+                    localStorage.setItem('@token', JSON.stringify({...user_detail}));
+                    Cookies.set('user_id', user_detail.user.id);
+                    Cookies.set('role', user_detail.user.role);
+                    if(user_detail.user.role == 'Seller'){
+                        navigate('/admin/dashboard', { replace: true });
+                    }
+                    else if(user_detail.user.role == 'Buyer'){
+                        navigate('/',{replace:true});
+                    }                   
                 })
             }
         }
