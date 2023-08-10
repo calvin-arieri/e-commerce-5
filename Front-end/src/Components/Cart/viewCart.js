@@ -1,28 +1,55 @@
-function ViewCart(){
+function ViewCart({shopping}){
+    function handleAdd(){
+        fetch(`http://127.0.0.1:5555/shopping/${shopping.id}`,{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                quantity: shopping.quantity + 1
+            })
+        })
+    }
+    function handleMinus(){
+        fetch(`http://127.0.0.1:5555/shopping/${shopping.id}`,{
+            method: 'POST',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                quantity: shopping.quantity - 1
+            })
+        })
+    }
+    function handleDelete(){
+        fetch(`http://127.0.0.1:5555/shopping/${shopping.id}`,{
+            method:'DELETE'   
+        })
+    }
 return(
-    <div >
+    <div key={shopping.id} >
         <tr>
             <td>
-                ORD001
+                SHOP{shopping.id}
             </td>
             <td>
-                <p>Hp pavillion </p>
+                <p>{shopping.product_name}</p>
             </td>
             <td>
-                <button>+</button>
+                <button onClick={handleAdd}>+</button>
                 <input 
                 type="number"
-                placeholder="2"
+                placeholder={shopping.quantity}
                 />
-                <button>-</button>
+                <button onClick={handleMinus}>-</button>
             </td>
             <td>
-                Amount: KES80000
+                {shopping.price * shopping.quantity}
             </td>
         </tr>
         <tr>
             <td>
-                <button>
+                <button onClick={handleDelete}>
                     Remove from cart
                 </button>
             </td>

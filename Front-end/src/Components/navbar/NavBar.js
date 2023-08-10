@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import HomeIcon from '@mui/icons-material/Home';
+import DeleteSession from "../handleSession/DeleteSession";
 
 
 function NavBar() {
@@ -26,9 +27,12 @@ function NavBar() {
             <li>
             <NavDropdown title={<AccountCircleIcon/>}id="navbarScrollingDropdown">
             <NavDropdown.Item href="signUp"><NavLink to="/SignUp">SignUp</NavLink></NavDropdown.Item>
-              <NavDropdown.Item href="log in">
+              <NavDropdown.Item href="LogIn">
               <NavLink to="/LogIn">LogIn</NavLink>
-              </NavDropdown.Item>  
+              </NavDropdown.Item> 
+              <NavDropdown.Item >
+                <DeleteSession />
+              </NavDropdown.Item>   
               </NavDropdown>
             </li>
             <li>

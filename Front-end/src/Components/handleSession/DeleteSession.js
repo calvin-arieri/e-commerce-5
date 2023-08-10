@@ -9,7 +9,7 @@ function DeleteSession(){
         navigate('/LogIn', { replace: true }); 
     }
     return(
-        <button onClick={handleDelete}>
+        <button className='button-85' onClick={handleDelete}>
             Log out
         </button>
     )

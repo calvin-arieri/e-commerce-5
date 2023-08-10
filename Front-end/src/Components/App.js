@@ -18,10 +18,11 @@ import Description from './pages/Description';
 const App = () => {
   return (
  
-    <div>    
-      <NavBar />
+    <div> 
+    
       <Routes>
         <Route exact path='/' element={<Home/>} />
+        <Route path='/Description' element={<Description />} />
         <Route path="/admin/" element={<SellerPage/>} >
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<SellerProducts />} />
