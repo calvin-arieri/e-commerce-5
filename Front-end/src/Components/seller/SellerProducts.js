@@ -1,6 +1,7 @@
 import ViewProducts from "./ViewProducts";
 import { useEffect, useState } from "react";
 import './allproducts.css'
+import Cookies from 'js-cookie';
 
 function SellerProducts(){
     const[allproducts, setProducts]=useState([])
@@ -14,18 +15,17 @@ function SellerProducts(){
             setProducts(data)
         })        
     }, [])
-
-    
+    let id = Cookies.get('user_id')
     function handleSearch(e){
         let word = e.target.value
         setLook(word)        
         setSearchLenght(word.length)
     }
     let search = allproducts.filter((product)=>{
-        if(product.name.slice(0,searchLenght).toLowerCase() == lookingFor.toLowerCase()){
+        if(product.name.slice(0,searchLenght).toLowerCase() == lookingFor.toLowerCase() && product.user_id == id ){
             return product
         }
-        else if(searchLenght == 0){
+        else if(searchLenght == 0 && product.user_id == id){
             return allproducts
         }
     })
@@ -38,9 +38,10 @@ function SellerProducts(){
             return search
         }
     })
+    console.log(id)
     let categories = ['All','Televisions' , 'Laptops', 'Smartphones', 'Tablets', 'Cameras']
     return(
-        <div className="allproducts-container">
+        id == undefined || Cookies.get('role') != 'Seller' ? (<div><h1>You are unAuthorized</h1><h1>404</h1></div>):<div className="allproducts-container">
             <div>
             <input
             type="search"
