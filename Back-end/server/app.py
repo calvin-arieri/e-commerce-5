@@ -55,7 +55,7 @@ def login():
         return jsonify(message="Invalid email or password"), 401  
 
 @app.route('/users', methods = ['GET'])
-@token_required
+# @token_required
 def get_users():
     if request.method == 'GET':       
         users=[user.to_dict() for user in User.query.all()]      
@@ -114,7 +114,7 @@ def get_all_comments():
             200
         )
 @app.route('/user/<int:id>', methods=['GET', 'PATCH', 'DELETE'])
-@token_required
+# @token_required
 def get_one_user(id):
     if request.method == 'GET':
         user = User.query.filter_by(id =id).first()
@@ -177,7 +177,7 @@ def get_specific_product(id):
         return response
     
 @app.route("/comment/<int:id>", methods =["DELETE", "GET"])
-@token_required 
+# @token_required 
 def certain_comment(id):
     if request.method == "GET":
         return make_response(
@@ -300,7 +300,7 @@ def get_an_order(id):
         )
 
 @app.route('/shopping', methods = ["GET", "POST"])
-@token_required
+# @token_required
 def getting_shopping_cart():
     if request.method == "GET":
         return make_response(
@@ -325,7 +325,7 @@ def getting_shopping_cart():
         )
 
 @app.route('/shopping/<int:id>', methods = ["GET", "PATCH","DELETE"])
-@token_required
+#@token_required
 def get_one_shopping(id):
     if request.method == "GET":
         return make_response(
