@@ -149,8 +149,22 @@ def get_one_user(id):
 #@token_required
 def get_specific_product(id):
     if request.method == "GET":
+        product = Product.query.filter_by(id=id).first()
+        product_dict = {
+                "id": product.id,
+                "name": product.name,
+                "image_url": product.image_url,
+                "price": product.price,
+                "quantity": product.quantity,
+                "category": product.category,
+                "description":product.description,
+                "created_at": product.created_at,
+                "updated_at": product.updated_at,
+                "user_id": product.user_id,
+                "comments":[comment.to_dict() for comment in Comment.query.filter_by(product_id = product.id).all()]
+            }
         return make_response(
-            jsonify(Product.query.filter_by(id = id).first().to_dict()),
+            jsonify(product_dict),
             200
         )
     elif request.method == "DELETE": 
