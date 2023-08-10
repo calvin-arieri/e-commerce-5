@@ -4,19 +4,32 @@ function ViewOrders({order_available, search_length, statuses, passing_status })
         let id, value
         value = e.target.value
         id = e.target.id
-        fetch(`http://localhost:5000/data/${id}`, {
-            method: 'PATCH',
-            headers:{
-                'Content-Type': 'application/json',
-            },
-            body:JSON.stringify({Status:value})
-        })
-        .then((r)=>{
-            if(r.ok){
-                alert(`You have successfully updated the status`)
-                window.location.reload(false)
-            }
-        })
+        if(value != 'Picked'){
+            fetch(`http://127.0.0.1:5555/order/${id}`, {
+                method: 'PATCH',
+                headers:{
+                    'Content-Type': 'application/json',
+                },
+                body:JSON.stringify({status:value})
+            })
+            .then((r)=>{
+                if(r.ok){
+                    alert(`You have successfully updated the status`)
+                    window.location.reload(false)
+                }
+            })
+        }
+        else{
+            fetch(`http://127.0.0.1:5555/order/${id}`, {
+                method: 'DELETE', 
+            })
+            .then(r =>{
+                if(r.ok){
+                    alert(`Order ORD00${id} delivered successfully`)
+                    window.location.reload(false)
+                }
+            })         
+        }
     } 
     //console.log(search_length)    
     return(
@@ -32,13 +45,13 @@ function ViewOrders({order_available, search_length, statuses, passing_status })
                 {order_available[0] == undefined ? passing_status != 'All' ? `Oops! no orders ${passing_status}` :  search_length > 0 ? '...searching': '....loading'  : order_available.map((order)=>{
                     return(
                         <tr>                           
-                            <td>{order.Customer_name}</td>
-                            <td>{order.Product_name}</td>
-                            <td>{order.Quantity}</td>
-                            <td>{`ORD00${order.Number}`}</td>
+                            <td>{order.customer_name}</td>
+                            <td>{order.product_name}</td>
+                            <td>{order.quantity}</td>
+                            <td>{`ORD00${order.id}`}</td>
                             <td>
-                                <select onChange={handleStatus} id={order.Number}>
-                                    <option>{order.Status}</option>
+                                <select onChange={handleStatus} id={order.id}>
+                                    <option>{order.status}</option>
                                     {
                                         statuses.map((status)=>{
                                             return(
@@ -48,7 +61,7 @@ function ViewOrders({order_available, search_length, statuses, passing_status })
                                     }
                                 </select>
                             </td>
-                            <td>{order.Payment_method}</td>
+                            <td>{order.payment_method}</td>
                         </tr>
                     )
                 })                   

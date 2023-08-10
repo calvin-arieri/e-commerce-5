@@ -1,5 +1,33 @@
 .search-bar{
   justify-content: center;
+  margin-top: 1em;
 }
-
-
+.search-bar input{
+  width: 26em;
+  border: none;
+}
+.search-bar input:focus{
+  width: 29em;
+  border: none;
+}
+.search-bar input:hover{
+  width: 29em;
+  border: none;
+}
+.upper_navbar{
+  display: flex;
+}
+.upper_navbar button{
+  margin: 1em;
+  margin-top: 0.4em;
+}
+.left-image img{
+  width:20em;
+  border-radius: 25px;
+  height: 25em;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.left-image{
+  margin-left: 4em;
+  margin-top: 2.2em;
+}
