@@ -30,8 +30,7 @@ function LogIn(){
                 })
                 .then((r)=>r.json())
                 .then((user_detail)=>{
-                    console.log("User Detail", user_detail);
-                    localStorage.setItem('@token', JSON.stringify({...user_detail}));
+                    console.log(user_detail)
                     Cookies.set('user_id', user_detail.user.id);
                     Cookies.set('role', user_detail.user.role);
                     if(user_detail.user.role == 'Seller'){
