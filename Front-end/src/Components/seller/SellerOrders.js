@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ViewOrders from "./ViewOrders";
 import './allproducts.css'
+import Cookies from 'js-cookie';
 
 function SellerOrders(){
     const [orders, setOrders] = useState([])
@@ -9,7 +10,7 @@ function SellerOrders(){
     const [filter_status, setStatus]=useState('All')
     let look_for, status_filter
     useEffect(()=>{
-        fetch('http://localhost:5000/data')
+        fetch('http://127.0.0.1:5555/orders')
         .then((r)=>r.json())
         .then((data)=>{
             setOrders(data)
@@ -21,16 +22,16 @@ function SellerOrders(){
         setIdLength(word.length)
     }
     look_for = orders.filter((order)=>{
-        if(order.id == lookingFor.slice(5, idLenght)){
+        if(order.id == lookingFor.slice(5, idLenght) && order.shop_id == Cookies.get('user_id')){
             return order
         }
-        else if(idLenght == 0){
+        else if(idLenght == 0 && order.shop_id == Cookies.get('user_id')){
             return orders
         }
     })
 
     status_filter =  look_for.filter((status)=>{
-        if(status.Status == filter_status){
+        if(status.status == filter_status){
             return status
         }
         else if(filter_status == 'All'){
@@ -38,9 +39,9 @@ function SellerOrders(){
         }
     })
     //console.log(status_filter)
-    const statuses = ['Confirmed', 'Shiping', 'Soon to be delivered', 'Ready for pick-up'] 
+    const statuses = ['Confirmed', 'Shiping', 'Soon to be delivered', 'Ready for pick-up', 'Picked'] 
     return(
-        <div className="allproducts-container">
+        Cookies.get('user_id') == undefined || Cookies.get('role') != 'Seller' ? (<div><h1>You are unAuthorized</h1><h1>404</h1></div>):<div className="allproducts-container">
             <div>
                 <input
                 type="search"
@@ -54,20 +55,27 @@ function SellerOrders(){
                 id='All'
                 onClick={(e)=>{setStatus(e.target.id)}}
                 >All</button>
-                {
-                    statuses.map((status)=>{
-                        return(
-                            <button 
-                            className="button-85"
-                            id={status}
-                             key={status}
-                             onClick={(e)=>{
-                                setStatus(e.target.id)
-                             }}
-                             >{status}</button>
-                        )
-                    })
-                }
+                <button 
+                className="button-85"
+                id='Pending'
+                onClick={(e)=>{setStatus(e.target.id)}}
+                >New orders</button>
+                <button 
+                className="button-85"
+                id='Shiping'
+                onClick={(e)=>{setStatus(e.target.id)}}
+                >Importing</button>
+                <button 
+                className="button-85"
+                id='Soon to be delivered'
+                onClick={(e)=>{setStatus(e.target.id)}}
+                >On transit</button>
+                <button 
+                className="button-85"
+                id='Ready for pick-up'
+                onClick={(e)=>{setStatus(e.target.id)}}
+                >Pickup station</button>                
+                
             </div>
             <ViewOrders order_available={status_filter} passing_status = {filter_status}search_length={idLenght} statuses={statuses} />
         </div>
