@@ -63,6 +63,9 @@ function Description() {
                 quantity: 1,
                 user_id: Cookies.get('user_id')
               })
+              .then(r=>{
+                alert('Added to cart successfully')
+              })
         })
       }
     }
