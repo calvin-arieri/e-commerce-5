@@ -4,6 +4,7 @@ import Cards from '../../cards/Cards';
 import Courosel from './Courosel';
 import Footer from '../../footer/Footer';
 import NavBar from '../../navbar/NavBar';
+import Cookies from 'js-cookie';
 
 const Home = () => {
   const[allproducts, setProducts]=useState([])
@@ -79,14 +80,21 @@ const Home = () => {
       <div>
         <h1>Big sale</h1>
         <div>
-
+        <Cards products={filtered_products.slice(1, 8).reverse()} />
         </div>
       </div>
       <div>
         <div>
         </div>
+        <h1>All products</h1>
       <Cards products={filtered_products}/>
-      </div>    
+      </div> 
+      {Cookies.get('user_id')== undefined ? <h1>No search history  </h1>:<div>
+        <h1>Recent searches</h1>
+        <div>
+          <Cards products={filtered_products.slice(1, 8)} />
+        </div>
+      </div> }  
       
       <Footer />
       {/* <Description /> */}

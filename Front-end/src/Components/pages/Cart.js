@@ -14,19 +14,17 @@ function Cart() {
     .then(data=>{setShopping(data)})
   },[])
   let user_shopping = shopping.map((item)=>{
-    if(item.user_id == Cookies.get('user_id')){
+    if(item.user_id == Cookies.get('user_id')){     
       return item
     }
-    else if(Cookies.get('user_id') == undefined){
-      return undefined
-    }
  })
+ console.log(user_shopping)
   return (
     <div>
       <NavBar />
     <div className='view-cart-main'>
       <div className="view-cart-left">
-      {Cookies.get('user_id') == undefined ?<h1><NavLink to='/LogIn'>Log in</NavLink> </h1> : user_shopping[0] == undefined ? <h1>No products available</h1> : user_shopping.map(item =>{
+      {Cookies.get('user_id') == undefined ?<h1><NavLink to='/LogIn'>Log in</NavLink> </h1> : user_shopping.length <= 0 ? <h1>No products available</h1> : user_shopping.map(item =>{
              return( <ViewCart shopping={item} />)
       })
       }

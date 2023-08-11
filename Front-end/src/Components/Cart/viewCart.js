@@ -1,4 +1,5 @@
 function ViewCart({shopping}){
+    console.log(shopping)
     function handleAdd(){
         fetch(`http://127.0.0.1:5555/shopping/${shopping.id}`,{
             method: 'POST',
