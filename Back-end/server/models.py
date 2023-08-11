@@ -7,13 +7,13 @@ class User(db.Model, SerializerMixin):
     serialize_rules=('-products.user', '-comments.user','-orders.order', '-shopping.user', '-password','-searchhistory.user')
 
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String)
-    second_name = db.Column(db.String)
-    email = db.Column(db.String)
-    phone_number= db.Column(db.String)
-    address = db.Column(db.String)
-    password = db.Column(db.String)
-    role = db.Column(db.String)
+    first_name = db.Column(db.String, nullable=False)
+    second_name = db.Column(db.String, nullable=False)
+    email = db.Column(db.String, nullable=False, unique=True)
+    phone_number = db.Column(db.String, nullable=False, unique=True)
+    address = db.Column(db.String, nullable=False)
+    password = db.Column(db.String, nullable=False)
+    role = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
@@ -42,11 +42,11 @@ class Comment(db.Model, SerializerMixin):
     __tablename__ = 'comments'
     serialize_rules=('-user.comments', '-product.comments')
 
-    id = db.Column(db.Integer , primary_key = True)
-    commenter = db.Column(db.String)
-    comment = db.Column(db.String)
-    rating =db.Column(db.Integer)
-    product_name = db.Column(db.String)
+    id = db.Column(db.Integer, primary_key=True)
+    commenter = db.Column(db.String, nullable=False)
+    comment = db.Column(db.String, nullable=False)
+    rating = db.Column(db.Integer, nullable=False)
+    product_name = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
@@ -71,12 +71,12 @@ class Product(db.Model, SerializerMixin):
     serialize_rules =('-user.products','-comments.product','-orders.product','-shopping.product', '-specs')
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
-    image_url = db.Column(db.String)
-    price = db.Column(db.Integer)
-    quantity = db.Column(db.Integer)
-    category = db.Column(db.String)
-    description = db.Column(db.String)
+    name = db.Column(db.String, nullable=False)
+    image_url = db.Column(db.String, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+    category = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
@@ -107,12 +107,12 @@ class Order(db.Model):
     serialize_rules = ('-product')
 
     id = db.Column(db.Integer, primary_key=True)
-    product_name = db.Column(db.String)
-    payment_method = db.Column(db.String)
-    customer_name = db.Column(db.String)
-    status = db.Column(db.String)
-    quantity = db.Column(db.Integer)
-    total_amount = db.Column(db.Integer)
+    product_name = db.Column(db.String, nullable=False)
+    payment_method = db.Column(db.String, nullable=False)
+    customer_name = db.Column(db.String, nullable=False)
+    status = db.Column(db.String, nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+    total_amount = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
@@ -140,9 +140,9 @@ class Shopping(db.Model):
     serialize_rules = ('-user.shopping', '-product.shopping')
 
     id = db.Column(db.Integer, primary_key=True)
-    product_name = db.Column(db.String)
-    quantity = db.Column(db.Integer)
-    price = db.Column(db.Integer)
+    product_name = db.Column(db.String, nullable=False)
+    quantity = db.Column(db.Integer, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
 
     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
@@ -162,8 +162,8 @@ class Search(db.Model, SerializerMixin):
     __tablename__ = 'searchhistory'
     serialize_rules=('-user.searchhistory')
 
-    id = db.Column(db.Integer, primary_key = True)
-    search_term = db.Column(db.String )
+    id = db.Column(db.Integer, primary_key=True)
+    search_term = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
