@@ -40,6 +40,9 @@ function LogIn(){
                         navigate('/',{replace:true});
                     }                   
                 })
+                .catch((error) => {
+                    console.error('An error occurred:', error);
+                })
             }
         }
     )

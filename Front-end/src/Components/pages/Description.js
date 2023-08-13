@@ -2,13 +2,17 @@ import React, { useEffect, useState } from 'react'
 import "./Description.css"
 import NavBar from '../navbar/NavBar';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, NavLink } from 'react-router-dom';
 
 function Description() {
   const navigate = useNavigate();
   const [product, setProducts] = useState([])
   const [comments, setComment] = useState([])
   const [comparing, setComparing] = useState([])
+  function handleClick(e){
+    Cookies.set('product_id', e.target.id)
+    window.location.reload(false)
+  }  
   useEffect (() => {
     fetch(`http://127.0.0.1:5555/product/${Cookies.get('product_id')}`)
     .then(res => {
@@ -142,6 +146,7 @@ function Description() {
                     <h4>{product.name}</h4>
                     <p>SHOP{product.user_id}</p>
                     <p>Price:{product.price}</p>
+                    <NavLink to="/Description" id={product.id} onClick={handleClick}>Buy Now</NavLink>
                   </div>
                   )            
 

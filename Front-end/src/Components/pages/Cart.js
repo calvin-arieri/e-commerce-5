@@ -13,12 +13,13 @@ function Cart() {
     .then(r=> r.json())
     .then(data=>{setShopping(data)})
   },[])
+
   let user_shopping = shopping.map((item)=>{
     if(item.user_id == Cookies.get('user_id')){     
       return item
     }
  })
- console.log(user_shopping)
+ 
   return (
     <div>
       <NavBar />
