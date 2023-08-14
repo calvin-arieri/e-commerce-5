@@ -69,7 +69,7 @@ Tech X utilizes the following technologies:
 - React.js: Frontend development
 - API Integration: Fetching and displaying product data
 - Tailwind CSS & Bootstrap: Styling and design
-- Node.js & Express: Backend development
+- Flask&Python: Backend development
 
 ## Contributing
 
