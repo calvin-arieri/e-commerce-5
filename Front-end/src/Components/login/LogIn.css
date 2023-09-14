@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+.form-container {
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 19em; 
+  background-color: #ffffff;
+  padding: 10px 30px;
+  font-size: 1.1em;
+  font-family: "Poppins", sans-serif;
+  height: max-content;
+}
+.card_title {
+  text-align: center;
+  padding: 10px;
+}
+.form-container input{
+  margin: 1px 0;
+  width: 85%;
+  background-color: #e2e2e2;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+.form-container a{
+    text-decoration: none;
+}
+.form-container a:hover{
+    text-decoration: none;
+    color: #4796ff;
+}
+.display-flex{
+    display: flex;
+    gap:1;
+}
+.display-flex input{
+    width: 9em;
+    margin-right: 5em;
+}
+.form-styling p{
+    font-weight: 300;
+    font-size: 0.7em;
+}
+#submit{  
+  background-color: #4796ff;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+  width: 6em;
+  margin-left: 7em;
+  margin-top: 1em;
+}
+#submit:hover{  
+  background-color: #5ca3ff;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 8px 15px;
+  width: 6em;
+  margin-left: 7em;
+  margin-top: 1em;
+  cursor:pointer;
+}
+.top-most{
+    height: 100vh;
+    width:100%;
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
