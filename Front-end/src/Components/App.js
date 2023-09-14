@@ -12,9 +12,6 @@ import SellerOrders from './seller/SellerOrders';
 import AddProduct from './addproduct/AddProduct';
 import UpdateProfile from './updateprofile/UpdateProfile';
 import Description from './pages/Description';
-
-
-
 const App = () => {
   return (
  
@@ -33,23 +30,10 @@ const App = () => {
         <Route path='/update' element={<UpdateProfile />} />
         <Route path='/LogIn' element={<LogIn />} /> 
         <Route path="/SignUp"  element={<SignUp />} /> 
-        <Route path="/Cart" element={<Cart />} />
-
-        
-      </Routes>
-
-      
-
-
+        <Route path="/Cart" element={<Cart />} />        
+      </Routes> 
     </div>
- 
-   
-   
-
-
   );
 };
-
-
 
 export default App;
