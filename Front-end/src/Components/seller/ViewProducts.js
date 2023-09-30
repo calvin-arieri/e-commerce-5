@@ -6,7 +6,7 @@ function ViewProducts({shop_products, searchValue, currentCategory}){
         let value, id
         value = e.target.value
         id=e.target.id
-        setTimeout(()=>{fetch(`http://localhost:5000/products/${id}`, {
+        setTimeout(()=>{fetch(`http://localhost:5555/products/${id}`, {
             method: 'PATCH',
             headers:{
                 'Content-Type':'application/json',
