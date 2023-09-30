@@ -1,8 +1,9 @@
 import {useFormik} from 'formik'
 import * as Yup from 'yup'
 import './AddProduct.css'
+import Cookies from 'js-cookie';
 function AddProduct(){
-    let id = 1
+    let id = Cookies.get('user_id')
     const formSchema = Yup.object().shape(
         {
            image_url: Yup.string().required('Field must be filled'),

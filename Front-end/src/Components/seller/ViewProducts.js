@@ -1,5 +1,6 @@
 import Delete from "../delete/Delete"
 import './table.css'
+
 import {useState} from 'react'
 function ViewProducts({shop_products, searchValue, currentCategory}){  
     function handleQuantity(e){
