@@ -52,11 +52,14 @@ function Description() {
     }
   })
   function handleAddToCart(){
+    alert("Hello world")
+
     if(product.quantity > 0){
       if(Cookies.get('user_id')== undefined){
         navigate('/LogIn',{replace:true});
       }
       else{
+        alert("Hello world")
         fetch('http://127.0.0.1:5555/shopping',{
               method: "POST",
               headers: {
@@ -66,12 +69,18 @@ function Description() {
                 product_id:product.id,
                 quantity: 1,
                 user_id: Cookies.get('user_id')
-              })
+              }
+              )
+            })
               .then(r=>{
+                if (r.ok){
                 alert('Added to cart successfully')
+                }
+                else{
+                  alert ('Error adding item to the shopping list');
+                }
               })
-        })
-      }
+            } 
     }
     else{
       alert('Out of stock')
