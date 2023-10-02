@@ -14,7 +14,7 @@ function Cart() {
     .then(data=>{setShopping(data)})
   },[])
 
-  let user_shopping = shopping.map((item)=>{
+  let user_shopping = shopping.filter((item)=>{
     if(item.user_id == Cookies.get('user_id')){     
       return item
     }
