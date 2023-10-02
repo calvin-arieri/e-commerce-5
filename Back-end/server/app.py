@@ -412,12 +412,27 @@ def handle_signup():
         password = data['password'],
         role = data['role']
     )
-    db.session.add(new_user)
-    db.session.commit()
-    return make_response(
-        jsonify({"message":"added succesfully"}),
-        200
-    )
+    
+    user_emails = []
+    users = User.query.all()
+    for user in users :
+        user_emails.append(user.email)
+
+    if data["email"] in users:
+        response = make_response(
+            jsonify({"message":"user exists"}),
+            400
+        )
+        return(
+           response 
+        )
+    else:
+        db.session.add(new_user)
+        db.session.commit()
+        return make_response(
+            jsonify({"message":"added succesfully"}),
+            200
+        )
 
 @app.errorhandler(NotFound)
 def handle_not_found(e):
