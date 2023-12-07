@@ -40,14 +40,7 @@ def login():
     user = User.query.filter_by(email=email).first()
 
     if user and user.password == password:
-        token = jwt.encode({
-            'user': data['email'],
-            'exp': str(datetime.datetime.utcnow() + datetime.timedelta(hours=2))
-        }, app.config['SECRET_KEY'])
-        session['user_id'] = user.id
-        session['role'] = user.role
-        return jsonify({
-            "token": token,
+        return jsonify({            
             "user":User.query.filter_by(email=email).first().to_dict()
         }),200
     
@@ -381,7 +374,11 @@ def get_dashboard_details(id):
             for comment in Comment.query.filter_by(product_id=product.id).all():
                 ratings.append(comment.rating)
             for order in Order.query.filter_by(product_id=product.id).all():
-                orders += 1    
+                orders += 1
+        if len(ratings) <= 0:
+            the_ratings = 0
+        else:
+            the_ratings= int(statistics.mean(ratings))           
         return make_response(
         jsonify(
             {
@@ -389,7 +386,7 @@ def get_dashboard_details(id):
                 "id":user.id,
                 "shop_id": f"SHOP00{user.id}",
                 "products": number_of_products,
-                "rating": int(statistics.mean(ratings)),
+                "rating": the_ratings,
                 "orders": orders
             }
             ),
