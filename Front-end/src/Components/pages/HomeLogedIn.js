@@ -6,7 +6,7 @@ const Home = ({searchLenght, lookingFor}) => {
   const[choosen_category, setCategory]= useState('All') 
 
   useEffect(()=>{
-      fetch('')
+      fetch('https://tech-x-1y4r.onrender.com/products')
       .then((r)=>r.json())
       .then((data)=>{
           setProducts(data)
