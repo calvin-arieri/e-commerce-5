@@ -5,12 +5,14 @@ from models import db, Shopping,Product,User,Order,Comment
 from flask_cors import CORS
 import statistics
 import jwt
+import os
 from werkzeug.exceptions import NotFound
 import datetime
 from functools import wraps
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///shop.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+# postgres://techx_database_user:EO1XDq7kyWdZwwdGGcr86OMos035hFGk@dpg-cml7l7i1hbls73c2o3u0-a.oregon-postgres.render.com/techx_database
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'A\xd0\xe3\x9b\xef\x90\xb7\x15\x82\xd6\x99\xe6'
 migrate = Migrate(app , db)
