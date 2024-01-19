@@ -5,7 +5,7 @@ function ViewOrders({order_available, search_length, statuses, passing_status })
         value = e.target.value
         id = e.target.id
         if(value != 'Picked'){
-            fetch(`http://127.0.0.1:5555/order/${id}`, {
+            fetch(`https://tech-x-1y4r.onrender.com/order/${id}`, {
                 method: 'PATCH',
                 headers:{
                     'Content-Type': 'application/json',
@@ -20,7 +20,7 @@ function ViewOrders({order_available, search_length, statuses, passing_status })
             })
         }
         else{
-            fetch(`http://127.0.0.1:5555/order/${id}`, {
+            fetch(`https://tech-x-1y4r.onrender.com/order/${id}`, {
                 method: 'DELETE', 
             })
             .then(r =>{
