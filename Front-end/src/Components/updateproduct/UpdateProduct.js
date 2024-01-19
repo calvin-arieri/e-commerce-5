@@ -9,7 +9,7 @@ function UpdateProduct(){
 
     let id  
     useEffect(()=>{
-        fetch('http://localhost:3000/products')
+        fetch('https://tech-x-1y4r.onrender.com/products')
         .then((r)=>r.json())
         .then ((data)=>setProducts(data)
         )
@@ -45,7 +45,7 @@ function UpdateProduct(){
             validationSchema:formSchema,
             onSubmit:(values)=>{
                 console.log(values)
-                fetch(`http://localhost:3000/products/${delProduct[0].id}`,{
+                fetch(`https://tech-x-1y4r.onrender.com/products/${delProduct[0].id}`,{
                     method: 'PATCH',
                     headers:{
                         'Content-Type': 'application/json'
