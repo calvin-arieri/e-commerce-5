@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom'
 function Cart() {
  const [shopping ,setShopping] = useState([])
   useEffect(()=>{
-    fetch("http://127.0.0.1:5555/shopping")
+    fetch("https://tech-x-1y4r.onrender.com/shopping")
     .then(r=> r.json())
     .then(data=>{setShopping(data)})
   },[])
