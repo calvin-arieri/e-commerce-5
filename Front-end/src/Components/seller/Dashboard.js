@@ -8,13 +8,13 @@ function Dashboard(){
     const [coments, setComments] = useState([])
     let id = Cookies.get('user_id')
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5555/admin/${id}`)
+        fetch(`https://tech-x-1y4r.onrender.com/admin/${id}`)
         .then(r => r.json())
         .then(data =>{
             setAdmin(data)
     })},[])
     useEffect(()=>{
-        fetch(`http://127.0.0.1:5555/comments/${id}`)
+        fetch(`https://tech-x-1y4r.onrender.com/comments/${id}`)
         .then(r => r.json())
         .then(data =>{
             setComments(data)
