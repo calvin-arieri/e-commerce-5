@@ -7,7 +7,7 @@ function ViewProducts({shop_products, searchValue, currentCategory}){
         let value, id
         value = e.target.value
         id=e.target.id
-        setTimeout(()=>{fetch(`http://localhost:5555/products/${id}`, {
+        setTimeout(()=>{fetch(`https://tech-x-1y4r.onrender.com/products/${id}`, {
             method: 'PATCH',
             headers:{
                 'Content-Type':'application/json',
