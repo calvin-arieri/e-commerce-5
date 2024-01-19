@@ -64,7 +64,7 @@ function SignUp(){
             onSubmit:(values)=>{
                 console.log('hello world')
                 console.log(values)
-                fetch('http://127.0.0.1:5555/signup',{
+                fetch('https://tech-x-1y4r.onrender.com/signup',{
                     method: 'POST',
                     headers:{
                         'Content-Type':'application/json',
