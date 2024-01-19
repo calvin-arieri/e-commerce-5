@@ -22,7 +22,7 @@ function Description() {
     });
   },[])
   useEffect (() => {
-    fetch('http://127.0.0.1:5555/products')
+    fetch('https://tech-x-1y4r.onrender.com/products')
     .then(res => {
       return res.json()
     }).then(data => {
@@ -30,7 +30,7 @@ function Description() {
     });
   },[])
   useEffect (() => {
-    fetch('http://127.0.0.1:5555/comments')
+    fetch('https://tech-x-1y4r.onrender.com/comments')
     .then(res => {
       return res.json()
     }).then(data => {
