@@ -1,7 +1,7 @@
 function ViewCart({shopping}){
     console.log(shopping)
     function handleAdd(){
-        fetch(`http://127.0.0.1:5555/shopping/${shopping.id}`,{
+        fetch(`https://tech-x-1y4r.onrender.com/shopping/${shopping.id}`,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ function ViewCart({shopping}){
         })
     }
     function handleMinus(){
-        fetch(`http://127.0.0.1:5555/shopping/${shopping.id}`,{
+        fetch(`https://tech-x-1y4r.onrender.com/shopping/${shopping.id}`,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ function ViewCart({shopping}){
         })
     }
     function handleDelete(){
-        fetch(`http://127.0.0.1:5555/shopping/${shopping.id}`,{
+        fetch(`https://tech-x-1y4r.onrender.com/shopping/${shopping.id}`,{
             method:'DELETE'   
         })
     }
