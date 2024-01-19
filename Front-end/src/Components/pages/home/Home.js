@@ -12,7 +12,7 @@ const Home = () => {
   const [searchLenght, setSearchLenght] = useState(0)
   const [lookingFor, setLook] = useState('')
   useEffect(()=>{
-      fetch('http://127.0.0.1:5555/products')
+      fetch('https://tech-x-1y4r.onrender.com/products')
       .then((r)=>r.json())
       .then((data)=>{
           setProducts(data)
