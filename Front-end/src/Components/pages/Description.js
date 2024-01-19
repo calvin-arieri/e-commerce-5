@@ -14,7 +14,7 @@ function Description() {
     window.location.reload(false)
   }  
   useEffect (() => {
-    fetch(`http://127.0.0.1:5555/product/${Cookies.get('product_id')}`)
+    fetch(`https://tech-x-1y4r.onrender.com/product/${Cookies.get('product_id')}`)
     .then(res => {
       return res.json()
     }).then(data => {
