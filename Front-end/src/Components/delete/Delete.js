@@ -1,6 +1,6 @@
 function Delete({productId}){
     function handledelete(){
-        fetch(`http://localhost:5000/products/${productId}`,{
+        fetch(`https://tech-x-1y4r.onrender.com/products/${productId}`,{
            method: 'DELETE' 
         })
         .then((r)=>{
