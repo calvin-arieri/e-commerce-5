@@ -10,7 +10,7 @@ function SellerOrders(){
     const [filter_status, setStatus]=useState('All')
     let look_for, status_filter
     useEffect(()=>{
-        fetch('http://127.0.0.1:5555/orders')
+        fetch('https://tech-x-1y4r.onrender.com/orders')
         .then((r)=>r.json())
         .then((data)=>{
             setOrders(data)
